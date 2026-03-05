@@ -6,7 +6,7 @@
  */
 
 // Show buffer info
-globalThis.show_buffer_info_demo = function(): void {
+function show_buffer_info_demo() : void {
   const bufferId = editor.getActiveBufferId();
   const info = editor.getBufferInfo(bufferId);
 
@@ -18,7 +18,8 @@ globalThis.show_buffer_info_demo = function(): void {
   } else {
     editor.setStatus("No buffer info available");
   }
-};
+}
+registerHandler("show_buffer_info_demo", show_buffer_info_demo);
 
 editor.registerCommand(
   "Query Demo: Show Buffer Info",
@@ -27,7 +28,7 @@ editor.registerCommand(
 );
 
 // Show cursor position with selection info
-globalThis.show_cursor_info_demo = function(): void {
+function show_cursor_info_demo() : void {
   const cursor = editor.getPrimaryCursor();
 
   if (cursor) {
@@ -43,7 +44,8 @@ globalThis.show_cursor_info_demo = function(): void {
   } else {
     editor.setStatus("No cursor info available");
   }
-};
+}
+registerHandler("show_cursor_info_demo", show_cursor_info_demo);
 
 editor.registerCommand(
   "Query Demo: Show Cursor Position",
@@ -52,10 +54,11 @@ editor.registerCommand(
 );
 
 // Count all cursors (multi-cursor support)
-globalThis.count_cursors_demo = function(): void {
+function count_cursors_demo() : void {
   const cursors = editor.getAllCursors();
   editor.setStatus(`Active cursors: ${cursors.length}`);
-};
+}
+registerHandler("count_cursors_demo", count_cursors_demo);
 
 editor.registerCommand(
   "Query Demo: Count All Cursors",
@@ -64,7 +67,7 @@ editor.registerCommand(
 );
 
 // List all buffers
-globalThis.list_all_buffers_demo = function(): void {
+function list_all_buffers_demo() : void {
   const buffers = editor.listBuffers();
   let modifiedCount = 0;
 
@@ -75,7 +78,8 @@ globalThis.list_all_buffers_demo = function(): void {
   }
 
   editor.setStatus(`Open buffers: ${buffers.length} (${modifiedCount} modified)`);
-};
+}
+registerHandler("list_all_buffers_demo", list_all_buffers_demo);
 
 editor.registerCommand(
   "Query Demo: List All Buffers",
@@ -84,7 +88,7 @@ editor.registerCommand(
 );
 
 // Show viewport info
-globalThis.show_viewport_demo = function(): void {
+function show_viewport_demo() : void {
   const vp = editor.getViewport();
 
   if (vp) {
@@ -93,7 +97,8 @@ globalThis.show_viewport_demo = function(): void {
   } else {
     editor.setStatus("No viewport info available");
   }
-};
+}
+registerHandler("show_viewport_demo", show_viewport_demo);
 
 editor.registerCommand(
   "Query Demo: Show Viewport Info",
